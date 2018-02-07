@@ -1,5 +1,6 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const supportBrowsers = ["last 2 versions", "ie >= 11", "ios >= 6", "android >= 4.0"];
 
 module.exports = {
     entry: {
@@ -11,22 +12,26 @@ module.exports = {
         filename: "./bin/[name].js"
     },
     module: {
-        loaders: [
-            { test: /\.css$/, loader: ExtractTextPlugin.extract({
-                loader: "css-loader!clean-css-loader"
-            }) },
+        rules: [
             {
-                test: /.js?$/,
-                loader: 'babel-loader',
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    use: [ 'css-loader', 'clean-css-loader' ]
+                })
+            },
+            {
+                test: /\.js$/,
                 exclude: /node_modules/,
+                loader: 'babel-loader',
                 query: {
                     presets: [
-                        ['env', {
-                            'targets': {
-                                'browsers': ['last 5 versions']
-                            },
-                            'modules': false,
-                        }],
+                        [
+                            'env', {
+                                'targets': {
+                                    "browsers": supportBrowsers
+                                }
+                            }
+                        ],
                         'react'
                     ]
                 }
@@ -34,23 +39,23 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: '"production"'
+                NODE_ENV: JSON.stringify('production')
             }
         }),
         new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
+            sourceMap: false,
+            output: {
+                comments: false
+            },
             compress: {
                 warnings: false
             }
         }),
-        new webpack.LoaderOptionsPlugin({
-            minimize: true
-        }),
         new ExtractTextPlugin('./bin/build.css')
     ],
-    devtool: '#source-map',
     node: {
         fs: "empty"
     },
