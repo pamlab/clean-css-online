@@ -1,18 +1,12 @@
 /* main.css */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 html, body {
     height: 100%;
-    width: 100%;
+    margin: 0;
 }
 
 body {
-    font-family: 'Trebuchet MS', Helvetica, Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 #container #loading {
@@ -23,37 +17,54 @@ body {
     font-size: 16px;
     text-align: center;
 }
-#header {
-    height: 40px;
+
+.header {
+    font-family: 'Roboto', sans-serif;
+    height: 50px;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    box-sizing: border-box;
 }
-h1 {
-    display: inline;
-}
-#header a {
-    font-family: 'Times New Roman', serif;
+
+.header__headline {
+    font-weight: 400;
+    margin: 0;
+    cursor: default;
 }
 
 .io {
-    float: left;
-    height: calc(100vh - 40px);
+    height: calc(100vh - 60px);
     font-family: consolas;
-    font-size: 13px;
+    font-size: 14px;
+    flex: 1;
 }
-.input {
-    width: 45%;
-    resize: none;
-}
-.output {
-    width: 55%;
-    position: relative;
-    height: calc(100vh - 40px);
+
+.contents {
     display: flex;
-    flex-flow: column;
+    width: calc(100% - 20px);
+    margin: 0 auto;
 }
+
+.input {
+    resize: none;
+    box-sizing: border-box;
+    border: 1px solid #888;
+    padding: .5em;
+}
+
+.output {
+    position: relative;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
 .output .hljs {
     flex: 1 1 auto;
 }
+
 .output .warning {
     padding-left: 0.5em;
     background-color: #eea;
@@ -63,10 +74,20 @@ h1 {
 }
 
 .output .stats {
-    background-color: #eee;
-    padding-left: 0.5em;
-    border-top: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
-
+    padding: 0 .5em .25em;
+    border-bottom: 1px dashed #333;
     flex: 0 1 auto;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+    .header__headline {
+        font-size: 20px;
+    }
+    .output .stats {
+        font-size: 11px;
+    }
 }
