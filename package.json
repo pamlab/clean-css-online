@@ -1,5 +1,9 @@
 {
   "private": true,
+  "scripts": {
+    "start": "webpack",
+    "watch": "webpack --watch"
+},
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^7.1.4",
