@@ -37,7 +37,7 @@ body {
 }
 
 .io {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 80px);
     font-family: consolas;
     font-size: 14px;
     flex: 1;
@@ -45,6 +45,7 @@ body {
 
 .contents {
     display: flex;
+    flex-wrap: wrap;
     width: calc(100% - 20px);
     margin: 0 auto;
 }
@@ -74,22 +75,16 @@ body {
     flex: 0 1 auto;
 }
 
-.output .stats {
-    padding: 0 0 .25em;
-    border-bottom: 1px dashed #333;
-    flex: 0 1 auto;
-    position: sticky;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    margin: 0 .5em;
+.stats {
+    padding: .25em 0 0;
+    width: 100%;
+    height: 20px;
+    box-sizing: border-box;
+    font-size: .8rem;
 }
 
 @media screen and (max-width: 600px) {
     .header__headline {
         font-size: 20px;
-    }
-    .output .stats {
-        font-size: 11px;
     }
 }
