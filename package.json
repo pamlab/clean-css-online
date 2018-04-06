@@ -2,18 +2,18 @@
   "private": true,
   "devDependencies": {
     "babel-core": "^6.23.1",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.2.1",
     "babel-preset-react": "^6.23.0",
     "clean-css-loader": "^0.1.4",
-    "css-loader": "^0.28.9",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "raw-loader": "^0.5.1",
-    "webpack": "^3.10.0"
+    "webpack": "^4.5.0"
   },
   "dependencies": {
     "browser-process-hrtime": "^0.1.2",
-    "clean-css": "^4.1.9",
+    "clean-css": "^4.1.11",
     "highlight.js": "^9.12.0",
     "preact": "^8.2.7"
   }
