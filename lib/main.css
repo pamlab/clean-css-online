@@ -33,6 +33,7 @@ body {
     font-weight: 400;
     margin: 0;
     cursor: default;
+    font-size: 1.4rem;
 }
 
 .io {
@@ -51,7 +52,7 @@ body {
 .input {
     resize: none;
     box-sizing: border-box;
-    border: 1px solid #888;
+    border: 1px solid #ccc;
     padding: .5em;
 }
 
@@ -74,13 +75,14 @@ body {
 }
 
 .output .stats {
-    padding: 0 .5em .25em;
+    padding: 0 0 .25em;
     border-bottom: 1px dashed #333;
     flex: 0 1 auto;
     position: sticky;
     top: 0;
     left: 0;
     background-color: #fff;
+    margin: 0 .5em;
 }
 
 @media screen and (max-width: 600px) {
